@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Dosis', sans-serif;
+    text-align: justify;
+    background: black;
+    color: white;
+}
+
+/* MENU */
+.navbar {
+    /* border: 1px solid gray; */
+    display: flex;
+    flex-flow: row wrap;
+    background: black;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+}
+
+.logo {
+    /* border: 1px solid palegoldenrod; */
+    flex: 20%;
+    margin-left: 10%;
+    text-align: left;
+}
+
+.logo h1{
+    font-size: 32px;
+    color: white;
+    margin-left: 5px;
+}
+
+.menu {
+    /* border: 1px solid green; */
+    flex: 70%;
+    text-align: right;
+    padding: 25px;
+}
+
+.menu ul{ 
+    font-family: 'Arial', sans-serif;
+    margin-right: 15%;
+    display: inline-block; 
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.menu ul li{
+    float: left;
+}
+
+.dropdown{
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content{
+    transition: .5s;
+    display: block;
+}
+
+.dropdown-content a{
+    display: block;
+    text-align: right;
+}
+
+.menu a{
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    padding: 3px 3px;
+    transition: all 1s ease 0s;
+}
+
+.menu a:hover{
+    color: green;
+    transition: all 1s ease 0s;
+}
+
+#botao {
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 20px 16px;
+    margin-right: 15%;
+    margin-left: 10%;
+}
+
+#botao:hover {
+    color: green;
+    border-color: green;
+}
+
+/* CABEÇALHO */
+.header{
+    /* border: 1px solid purple; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 200px 100px 50px 100px;
+}
+
+.headline{
+    /* border: 1px solid white; */
+    margin-left: 10%;
+    flex: 40%;
+    font-size: 20px;
+}
+
+.headline h2{
+    font-size: 36px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.headline p{
+    color: white;
+    text-align: justify;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.5s linear 0s;
+}
+
+.btn:hover{
+    background: green;
+    transition: all 0.5s linear 0s;
+    transform: scale(1.1,1.1);
+}
+
+.img-headline{
+    margin-right: 10%;
+    flex: 40%;
+    text-align: center;
+}
+
+/* SEÇÃO DE AJUDA */
+section{
+    /* border: 1px solid gray; */
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    padding: 5%;
+}
+
+section #subtitle1{
+    /* border: 1px solid gray; */
+    text-align: center;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.help{
+    /* border: 1px solid gray; */
+    display: inline-block;
+    text-align: center;
+}
+
+.card-text{
+    /* border: 1px solid blue; */
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    margin: 1%;
+    padding: 20px;
+}
+
+/* SERVIÇOS */
+.services{
+    /* border: 1px solid white; */
+    height: 670px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.services #subtitle2{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.services .card-text{
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.card-text img{
+    display: none;
+}
+
+.card-text:hover img{
+    transition: all 1s ease-in-out 0s;
+    display: inline-block;
+    height: 50px;
+}
+
+.services .card-text:hover{
+    transition: all 0.5s ease-in-out 0s;
+    background: white;
+    color: black;
+    font-weight: 900;
+    height: 300px;
+    animation-name: animacao;
+    animation-duration: 1s;
+}
+
+@keyframes animacao {
+
+}
+
+.services .btn{  
+    margin-bottom: 1%;
+}
+
+/* RODAPÉ */
+footer{
+    display: flex;
+    flex-flow: row wrap;
+    background: white;
+    color: black;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    padding-top: 20px;
+}
+
+.card-footer{
+    font-size: 16px;
+    font-weight: bold;
+    width: 24%;
+    margin: 1%;
+    padding: 20px;
+}
+
+.card-footer img{
+    cursor: pointer;
+    max-width: 10%;
+    padding: 5px;
+}
+
+.card-footer img:hover{
+    transition: all 0.5 linear 0s;
+    transform: scale(1.1,1.1);
+}
