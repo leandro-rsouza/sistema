@@ -102,7 +102,11 @@ session_start();
             else:
                 return false;
             endif;
-            
+        }
+
+        public function game(Jogo $m, $v){
+            $m->getMandate();
+            $v->getVisitante();
         }
     }
 ?>

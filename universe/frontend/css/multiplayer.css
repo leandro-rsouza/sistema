@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: black;
+    margin-top: 200px;
+}
+
+h1{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-family: 'Dosis', 'sans-serif';
+    font-size: 48px;
+    top: -60px;
+}
+
+h2{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-family: 'Dosis', 'sans-serif';
+    font-size: 48px;
+    top: -60px;
+}
+
+span{
+    position: absolute;
+    text-align: center;
+    font-family: 'Arial', 'sans-serif';
+    font-size: 16px;
+    top: 215px
+}
+
+#j1{
+    color: green;
+}
+
+#j2{
+    color: red;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.set {
+    height: 150px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 150px;
+    text-align: center;
+}
+
+a{
+    position: absolute;
+    margin-top: 32%;
+}
+
+img{
+    max-width: 64px;
+    cursor: pointer;
+}
+
+img:hover{
+    transition: all 0.5s linear 0s;
+    transform: scale(1.1,1.1)
+}

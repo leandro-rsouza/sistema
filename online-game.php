@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="universe/frontend/css/stylegame.css">
+    <link rel="stylesheet" href="universe/frontend/css/multiplayer.css">
     <title> Jogo da Velha </title>
 </head>
 <body>
-<?php
-session_start();
-    require_once("verify_login.php")
-?>
     <h1> JOGO DA VELHA </h1>
+
+    <?php
+    session_start();
+        require_once 'verify_login.php';
+        require_once 'vendor/autoload.php';
+
+        $pessoa = new \universe\backend\Jogo();
+
+        $pessoa->getMandante($_GET['nome']);
+        $pessoa->getVisitante($_GET['visitante']);
+
+        $partida = new \universe\backend\Crud();
+
+        $partida->game($_GET['nome'], $_GET['visitante']);
+
+        echo "<h2>" .$_GET['nome']. " X " .$_GET['visitante']. "</h2>";
+    ?>
 <section class="game">
     <span id="j1"> </span>
     <span id="j2"> </span>
+
     <table>
         <tr>
             <td>
@@ -52,7 +66,7 @@ session_start();
             </td>
         </tr>
     </table>
-    <a href="game.php"> <img src="universe/frontend/img/reload.png"> </a>
+
 </section>
     <script src="game.js"></script>
 </body>
