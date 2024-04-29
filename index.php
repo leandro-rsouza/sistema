@@ -3,7 +3,7 @@
 <head>
     <META charset="UTF-8">
     <link rel="stylesheet" href="universe/frontend/css/index.css">
-    <title> UNIVERSE </title>
+    <title> Universe </title>
 </head>
 
 <body>

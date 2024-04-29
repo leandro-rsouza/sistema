@@ -50,7 +50,7 @@
 		ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas. 
 		Consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil 
 		aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.</p>
-	<a href="game.php" class="btn"> JOGAR AGORA </a>
+	<a href="game-mode.php" class="btn"> JOGAR AGORA </a>
 	</div>
 
 	<div class="img-headline">
