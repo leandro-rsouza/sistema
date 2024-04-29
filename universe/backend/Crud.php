@@ -2,6 +2,7 @@
 namespace universe\backend;
 
 use universe\backend\Pessoa;
+use universe\backend\Jogo;
 
 session_start();
 

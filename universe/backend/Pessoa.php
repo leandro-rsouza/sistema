@@ -7,6 +7,9 @@ namespace universe\backend;
         private $contato;
         private $email;
         private $senha;
+        private $vitorias;
+        private $derrotas;
+        private $empates;
         
         public function getId(){
             return $this->id;
@@ -46,6 +49,33 @@ namespace universe\backend;
 
         public function setSenha($s){
             $this->senha = $s;
+        }
+
+        public function getVitorias(){
+            return $this->vitorias;
+        }
+
+        public function setVitorias($vitorias){
+            $this->vitorias = $vitorias;
+            return $this;
+        }
+
+        public function getDerrotas(){
+            return $this->derrotas;
+        }
+
+        public function setDerrotas($derrotas){
+            $this->derrotas = $derrotas;
+            return $this;
+        }
+
+        public function getEmpates(){
+            return $this->empates;
+        }
+
+        public function setEmpates($empates){
+            $this->empates = $empates;
+            return $this;
         }
     }
 ?>
