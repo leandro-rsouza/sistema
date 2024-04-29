@@ -18,6 +18,6 @@
         </table>
     </section>
     
-    <div class='btn-create-room'> <a href="multiplayer.php"> Criar Sala </a> </div>
+    <div class='btn-create-room'> <a href="online-game.php"> Criar Sala </a> </div>
 </body>
 </html>
