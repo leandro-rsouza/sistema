@@ -9,15 +9,14 @@
 <body>
     
     <?php
-    session_start();
-    require_once 'verify_login.php' ;
     require_once 'vendor/autoload.php';
 
     $set = $_GET['set'];
     if($set == 'visitante'):        
         $jogo = new \universe\backend\Jogo();
         $jogo->setNumeroJogadores(2);
-        $jogo->setVisitante($_GET['id']);
+        $jogo->setVisitante($_GET['visitante']);
+        $jogo->setSala($_GET['id']);
 
         $criar_partida = new \universe\backend\Crud();
         $criar_partida->enter_game($jogo);

@@ -8,10 +8,10 @@
 </head>
 
 <?php
-session_start();
-    require_once('verify_login.php');
-    $id_visitante = $_SESSION['id'];
-    $visitante = $_SESSION['name'];
+    require_once 'vendor/autoload.php';
+    $consultar = new universe\backend\Crud();
+
+    foreach($consultar->read_game() as $sala):
     echo
     " 
     <body>
@@ -19,21 +19,20 @@ session_start();
             <table border='1' style='text-align: center'>
                 <tr>
                     <td> Número da Sala </td>
-                    <td> Mandante </td>
                     <td> Nº de Jogadores </td>
                     <td> Opção </td>
                 </tr>
                 <tr>
-                    <td> --- </td>
-                    <td> --- </td>
-                    <td> --- </td>
-                    <td> <a href='online-game.php?set=visitante&id=".$id_visitante."&visitante=".$visitante."'> Entrar </a> </td>
+                    <td> ".$sala['id_partida']." </td>
+                    <td> ".$sala['num_players']." </td>
+                    <td> <a href='online-game.php?set=visitante&id=".$sala['id_partida']."&visitante=".$_SESSION['id']."'> Entrar </a> </td>
                 </tr>
             </table>
         </section>
         
-    <div class='btn-create-room'> <a href='online-game.php?set=mandante&id=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>
-    </body>
-    ";
-?>
+        </body>
+        ";
+        endforeach;
+    echo "<div class='btn-create-room'> <a href='online-game.php?set=mandante&id=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>";
+    ?>
 </html>

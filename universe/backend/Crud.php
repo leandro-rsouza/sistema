@@ -4,6 +4,7 @@ namespace universe\backend;
 use universe\backend\Pessoa;
 use universe\backend\Jogo;
 
+session_start();
     class Crud {
         public function create(Pessoa $p){
             $sql = 'INSERT INTO pessoa (nome,contato,email,senha) VALUES (?,?,?,?)';
@@ -112,10 +113,12 @@ use universe\backend\Jogo;
         }
 
         public function enter_game(Jogo $j){
-            $sql = 'INSERT INTO partida (fk_player2) VALUES (?)';
+            $sql = 'UPDATE partida SET num_players = ?, fk_player2 = ? WHERE id_partida = ?';
 
             $enter = Conexao::Conn()->prepare($sql);
-            $enter->bindValue(1, $j->getVisitante());
+            $enter->bindValue(1, $j->getNumeroJogadores());
+            $enter->bindValue(2, $j->getVisitante());
+            $enter->bindValue(3, $j->getSala());
             $enter->execute();
         }
 
