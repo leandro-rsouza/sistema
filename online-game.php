@@ -34,9 +34,8 @@
 
     ?>
 
+<h1> JOGO DA VELHA </h1>
 <section class="game">
-
-    <h1> JOGO DA VELHA </h1>
     
     <span id="j1"> </span>
     <span id="j2"> </span>
