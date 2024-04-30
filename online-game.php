@@ -13,12 +13,25 @@
     require_once 'verify_login.php' ;
     require_once 'vendor/autoload.php';
 
-    $jogo = new \universe\backend\Jogo();
-    $jogo->setNumeroJogadores(1);
-    $jogo->setMandante($_GET['id']);
+    $set = $_GET['set'];
+    if($set == 'visitante'):        
+        $jogo = new \universe\backend\Jogo();
+        $jogo->setNumeroJogadores(2);
+        $jogo->setVisitante($_GET['id']);
 
-    $criar_partida = new \universe\backend\Crud();
-    $criar_partida->create_game($jogo);
+        $criar_partida = new \universe\backend\Crud();
+        $criar_partida->enter_game($jogo);
+    elseif($set == 'mandante'):
+        $jogo = new \universe\backend\Jogo();
+        $jogo->setNumeroJogadores(1);
+        $jogo->setMandante($_GET['id']);
+
+        $criar_partida = new \universe\backend\Crud();
+        $criar_partida->create_game($jogo);
+    else:
+        header('Location: room.php');
+        exit();
+    endif;
 
     ?>
 

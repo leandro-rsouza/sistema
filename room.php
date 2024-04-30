@@ -27,12 +27,12 @@ session_start();
                     <td> --- </td>
                     <td> --- </td>
                     <td> --- </td>
-                    <td> <a href='online-game.php?id=".$id_visitante."&visitante=".$visitante."'> Entrar </a> </td>
+                    <td> <a href='online-game.php?set=visitante&id=".$id_visitante."&visitante=".$visitante."'> Entrar </a> </td>
                 </tr>
             </table>
         </section>
         
-    <div class='btn-create-room'> <a href='online-game.php?id=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>
+    <div class='btn-create-room'> <a href='online-game.php?set=mandante&id=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>
     </body>
     ";
 ?>
