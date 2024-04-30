@@ -7,25 +7,25 @@
     <title> Jogo da Velha </title>
 </head>
 <body>
-    <h1> JOGO DA VELHA </h1>
-
+    
     <?php
     session_start();
-        require_once 'verify_login.php';
-        require_once 'vendor/autoload.php';
+    require_once 'verify_login.php' ;
+    require_once 'vendor/autoload.php';
 
-        $pessoa = new \universe\backend\Jogo();
+    $jogo = new \universe\backend\Jogo();
+    $jogo->setNumeroJogadores(1);
+    $jogo->setMandante($_GET['id']);
 
-        $pessoa->getMandante($_GET['nome']);
-        $pessoa->getVisitante($_GET['visitante']);
+    $criar_partida = new \universe\backend\Crud();
+    $criar_partida->create_game($jogo);
 
-        $partida = new \universe\backend\Crud();
-
-        $partida->game($_GET['nome'], $_GET['visitante']);
-
-        echo "<h2>" .$_GET['nome']. " X " .$_GET['visitante']. "</h2>";
     ?>
+
 <section class="game">
+
+    <h1> JOGO DA VELHA </h1>
+    
     <span id="j1"> </span>
     <span id="j2"> </span>
 
@@ -66,7 +66,6 @@
             </td>
         </tr>
     </table>
-
 </section>
     <script src="game.js"></script>
 </body>

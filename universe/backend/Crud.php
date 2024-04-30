@@ -4,8 +4,6 @@ namespace universe\backend;
 use universe\backend\Pessoa;
 use universe\backend\Jogo;
 
-session_start();
-
     class Crud {
         public function create(Pessoa $p){
             $sql = 'INSERT INTO pessoa (nome,contato,email,senha) VALUES (?,?,?,?)';
@@ -104,9 +102,35 @@ session_start();
             endif;
         }
 
-        public function game(Jogo $m, $v){
-            $m->getMandate();
-            $v->getVisitante();
+        public function create_game(Jogo $j){
+            $sql = 'INSERT INTO partida (num_players, fk_player1) VALUES (?,?)';
+
+            $create = Conexao::Conn()->Prepare($sql);
+            $create->bindValue(1, $j->getNumeroJogadores());
+            $create->bindValue(2, $j->getMandante());
+            $create->execute();
+        }
+
+        public function enter_game(Jogo $j){
+            $sql = 'INSERT INTO partida (fk_player2) VALUES (?)';
+
+            $enter = Conexao::Conn()->prepare($sql);
+            $enter->bindValue(1, $j->getVisitante());
+            $enter->execute();
+        }
+
+        public function read_game(){
+            $sql = 'SELECT * FROM partida';
+
+            $read = Conexao::Conn()->prepare($sql);
+            $read->execute();
+
+            if($read->rowCount() > 0):
+                $resultado = $read->fetchAll(\PDO::FETCH_ASSOC);
+                return $resultado;
+            else: 
+                return [];
+            endif;
         }
     }
 ?>

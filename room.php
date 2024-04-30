@@ -12,7 +12,7 @@ session_start();
     require_once('verify_login.php');
     $id_visitante = $_SESSION['id'];
     $visitante = $_SESSION['name'];
-    echo 
+    echo
     " 
     <body>
         <section>

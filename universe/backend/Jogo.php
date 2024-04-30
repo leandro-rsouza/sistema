@@ -26,11 +26,6 @@ class Jogo{
         return $this;
     }
 
-    public function partida($mandante, $visitante){
-        $this->setMandante($mandante);
-        $this->setVisitante($visitante);
-    }
-
     public function getSala(){
         return $this->sala;
     }
@@ -47,5 +42,10 @@ class Jogo{
     public function setNumeroJogadores($numero_jogadores){
         $this->numero_jogadores = $numero_jogadores;
         return $this;
+    }
+    
+    public function partida($mandante, $visitante){
+        $this->setMandante($mandante);
+        $this->setVisitante($visitante);
     }
 }
