@@ -3,8 +3,6 @@ for(i=1;i<10;i++){
     campo.push(document.getElementById(i))
 }
 
-ip = document.getElementById("ip")
-
 i = 0
 function set(id){
     if(i % 2 == 0){

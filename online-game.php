@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="universe/frontend/css/multiplayer.css">
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
     <title> Jogo da Velha </title>
 </head>
 <body>
@@ -24,7 +23,7 @@
     elseif($set == 'mandante'):
         $jogo = new \universe\backend\Jogo();
         $jogo->setNumeroJogadores(1);
-        $jogo->setMandante($_GET['id']);
+        $jogo->setMandante($_GET['mandante']);
 
         $criar_partida = new \universe\backend\Crud();
         $criar_partida->create_game($jogo);
@@ -34,8 +33,6 @@
     endif;
 
     ?>
-
-<h2 id = "ip"></h2>
 <h1> JOGO DA VELHA </h1>
 <section class="game">
     
@@ -80,11 +77,6 @@
         </tr>
     </table>
 </section>
-    <script src="game.js"></script>
-    <script type="text/javascript">
-      $.getJSON('https://ipapi.co/json/', function(data){
-        $("#ip").text(data.ip);
-      })
-    </script>
+    <script src="online-game.js"></script>
 </body>
 </html>

@@ -46,7 +46,7 @@
         echo    
         "</table>
         
-        <div class='btn-create-room'> <a href='online-game.php?set=mandante&id=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>";
+        <div class='btn-create-room'> <a href='online-game.php?set=mandante&mandante=".$_SESSION['id']."&nome=".$_SESSION['name']."'> Criar Sala </a> </div>";
         ?>
     </section>
 </body>
