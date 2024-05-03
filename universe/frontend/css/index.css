@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Dosis', sans-serif;
     background: #000000;
     color:#fff;
@@ -12,7 +13,8 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    min-height: 100vh;
+    width: 100%;
     background: black;
 }
 
