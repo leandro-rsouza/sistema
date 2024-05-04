@@ -20,6 +20,8 @@
 
         $criar_partida = new \universe\backend\Crud();
         $criar_partida->enter_game($jogo);
+
+        echo "<input type='hidden' id='currentPlayer' value='".$set."'>";
     elseif($set == 'mandante'):
         $jogo = new \universe\backend\Jogo();
         $jogo->setNumeroJogadores(1);
@@ -27,6 +29,8 @@
 
         $criar_partida = new \universe\backend\Crud();
         $criar_partida->create_game($jogo);
+
+        echo "<input type='hidden' id='currentPlayer' value='".$set."'>";
     else:
         header('Location: room.php');
         exit();

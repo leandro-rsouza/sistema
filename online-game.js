@@ -1,3 +1,6 @@
+currentPlayer = document.getElementById("currentPlayer").value
+alert(currentPlayer)
+
 campo = new Array()
 for(i=1;i<10;i++){
     campo.push(document.getElementById(i))
@@ -5,7 +8,7 @@ for(i=1;i<10;i++){
 
 i = 0
 function set(id){
-    if(i % 2 == 0){
+    if(currentPlayer == 'mandante'){
         x = new Array()
         for(c=1;c<10;c++){
             x.push(document.getElementById(c))
@@ -28,6 +31,9 @@ function set(id){
             for(i=1;i<10;i++){
                 document.getElementById(i).disabled = true
             }
+        }
+        for(i=0;i<10;i++){
+            campo[i].disabled = true
         }
 
     } else {
@@ -53,6 +59,9 @@ function set(id){
             for(i=1;i<10;i++){
                 document.getElementById(i).disabled = true
             }
+        }
+        for(i=0;i<10;i++){
+            campo[i].disabled = true
         }
     }
 
