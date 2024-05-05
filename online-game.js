@@ -1,3 +1,5 @@
+websocket = new WebSocket("ws://localhost:8080")
+
 currentPlayer = document.getElementById("currentPlayer").value
 alert(currentPlayer)
 
@@ -13,7 +15,7 @@ function set(id){
         for(c=1;c<10;c++){
             x.push(document.getElementById(c))
         }
-        campo[id].value = "X"
+        websocket.send(campo[id].value = "X")
         if(
             x[0].value == "X" && x[1].value == "X" && x[2].value == "X" || 
             x[3].value == "X" && x[4].value == "X" && x[5].value == "X" ||
@@ -32,8 +34,8 @@ function set(id){
                 document.getElementById(i).disabled = true
             }
         }
-        for(i=0;i<10;i++){
-            campo[i].disabled = true
+        for(i=1;i<10;i++){
+            document.getElementById(i).disabled = true
         }
 
     } else {
@@ -60,8 +62,8 @@ function set(id){
                 document.getElementById(i).disabled = true
             }
         }
-        for(i=0;i<10;i++){
-            campo[i].disabled = true
+        for(i=1;i<10;i++){
+            document.getElementById(i).disabled = true
         }
     }
 
