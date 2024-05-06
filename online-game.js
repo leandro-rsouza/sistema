@@ -1,84 +1,32 @@
+let websocket
 websocket = new WebSocket("ws://localhost:8080")
 
-currentPlayer = document.getElementById("currentPlayer").value
-alert(currentPlayer)
+currentPlayer = document.querySelector(".currentPlayer").value
 
 campo = new Array()
 for(i=1;i<10;i++){
     campo.push(document.getElementById(i))
 }
 
-i = 0
-function set(id){
-    if(currentPlayer == 'mandante'){
-        x = new Array()
-        for(c=1;c<10;c++){
-            x.push(document.getElementById(c))
-        }
-        websocket.send(campo[id].value = "X")
-        if(
-            x[0].value == "X" && x[1].value == "X" && x[2].value == "X" || 
-            x[3].value == "X" && x[4].value == "X" && x[5].value == "X" ||
-            x[6].value == "X" && x[7].value == "X" && x[8].value == "X" ||
+let player = currentPlayer
 
-            x[0].value == "X" && x[3].value == "X" && x[6].value == "X" ||
-            x[1].value == "X" && x[4].value == "X" && x[7].value == "X" ||
-            x[2].value == "X" && x[5].value == "X" && x[8].value == "X" ||
-           
-            x[0].value == "X" && x[4].value == "X" && x[8].value == "X" ||
-            x[2].value == "X" && x[4].value == "X" && x[6].value == "X" 
-        )
-        {
-            document.getElementById("j1").innerHTML = "Jogador 1 venceu!"
-            for(i=1;i<10;i++){
-                document.getElementById(i).disabled = true
-            }
-        }
-        for(i=1;i<10;i++){
-            document.getElementById(i).disabled = true
-        }
-
+function set(id) {
+    if(player == 'mandante') {
+        campo[id].value = 'X'
     } else {
-        o = new Array()
-        for(c=1;c<10;c++){
-            o.push(document.getElementById(c))
-        }
-        campo[id].value = "O"
-        if(
-            o[0].value == "O" && o[1].value == "O" && o[2].value == "O" || 
-            o[3].value == "O" && o[4].value == "O" && o[5].value == "O" ||
-            o[6].value == "O" && o[7].value == "O" && o[8].value == "O" ||
-
-            o[0].value == "O" && o[3].value == "O" && o[6].value == "O" ||
-            o[1].value == "O" && o[4].value == "O" && o[7].value == "O" ||
-            o[2].value == "O" && o[5].value == "O" && o[8].value == "O" ||
-           
-            o[0].value == "O" && o[4].value == "O" && o[8].value == "O" ||
-            o[2].value == "O" && o[4].value == "O" && o[6].value == "O" 
-        )
-        {
-            document.getElementById("j2").innerHTML = "Jogador 2 venceu!"
-            for(i=1;i<10;i++){
-                document.getElementById(i).disabled = true
-            }
-        }
-        for(i=1;i<10;i++){
-            document.getElementById(i).disabled = true
-        }
+        campo[id].value = 'O'
     }
-
-    campo[id].disabled = true
-    campo[id].style.color = "black"
-
-i++
 }
 
+const process = ({data}) => {
+    console.log(data)
+}
 
+const play = (event) => {
+    event.preventDefault()
 
+    websocket.send(campo[0].value) // Só recebe o primeiro campo
+    websocket.onmessage = process
+}
 
-
-
-
-
-
-
+campo[0].addEventListener("click", play) // Só recebe o primeiro campo
