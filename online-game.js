@@ -15,19 +15,20 @@ function set(id) {
     const play = (event) => {
         event.preventDefault()
 
-        websocket.send(campo[id].value) // Só recebe o primeiro campo
+        websocket.send(campo[id].value)
         websocket.onmessage = process
     }
 
     if(player == 'mandante') {
         campo[id].value = 'X'
-        campo[id].addEventListener("click", play)
     } else {
         campo[id].value = 'O'
-        campo[id].addEventListener("click", play)
     }
-}
-
-const process = ({data}) => {
-    console.log(data)
+    
+    squareInput = document.getElementById(id)
+    campo[id].addEventListener("click", play)
+    
+    const process = ({data}) => {
+        squareInput = data
+    }
 }
